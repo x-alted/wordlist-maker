@@ -2,7 +2,7 @@
 """
 Wordlist Maker
 
-Generates password variations from personal facts.
+Generates password variations from user inputted phrases, dates, and related keywords.
 Features:
 - Interactive or command-line (CLI) mode
 - Single or multiple phrases
@@ -39,7 +39,7 @@ from typing import List, Set, Optional, Callable
 __version__ = "1.1.0"
 
 # ---------------------------- Configuration ---------------------------- #
-DEFAULT_OUTPUT_DIR = "list-maker"
+DEFAULT_OUTPUT_DIR = "wordlist-maker"
 
 # Default number suffixes (unique values only, deterministic order)
 COMMON_NUMBERS = ["123", "123456", "123456789", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
@@ -972,7 +972,7 @@ def main():
     parser.add_argument("--phrases-file", type=str, help="File containing one phrase per line (overrides --phrases)")
     parser.add_argument("--count", type=int, default=1000, help="Number of variations (random mode)")
     parser.add_argument("--output", default="wordlist.txt", help="Output filename (CLI mode)")
-    parser.add_argument("--output-dir", help="Output directory (default: list-maker)")
+    parser.add_argument("--output-dir", help="Output directory (default: wordlist-maker)")
     parser.add_argument("--exhaustive", action="store_true", help="Generate ALL possible combinations (deterministic case only)")
     parser.add_argument("--max-len", type=int, default=3, help="Max combination length for multiple phrases (default 3)")
     parser.add_argument("--stream", action="store_true", help="Stream output directly to disk (no dedup, low memory)")
